@@ -1,0 +1,37 @@
+@(id: String, linkForm: Form[Link])(implicit msg: play.api.i18n.Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main("link-Self-Service") {
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Edit link</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+            @form(routes.LinksController.update(id)) {
+                <fieldset>
+                @links.formElementsLink(linkForm)
+                </fieldset>
+
+                <div class="actions">
+                    <input type="submit" value="Update this link"	class="btn btn-primary"> or
+                    <a href="@routes.LinksController.list()" class="btn btn-default">Cancel</a>
+                </div>
+            }
+            </div>
+            <div class="col-md-4">
+            @info()
+            </div>
+        </div>
+
+        @form(routes.LinksController.delete(id), 'class -> "topRight") {
+            <input type="submit" value="Delete this link" class="btn btn-danger">
+            }
+    </div>
+}

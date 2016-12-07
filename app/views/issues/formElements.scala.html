@@ -1,0 +1,13 @@
+@(issueForm: Form[Issue])(implicit msg: play.api.i18n.Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@inputText(issueForm("name"), '_label -> "Name", 'class -> "form-control")
+
+@repeat(issueForm("links"), min = 1) { issue =>
+    @inputText(issueForm("links.title"), '_label -> "Title", 'class -> "form-control")
+    @inputText(issueForm("links.url"), '_label -> "Url", 'class -> "form-control")
+    @inputText(issueForm("links.readTime"), '_label -> "Read time", 'class -> "form-control")
+}

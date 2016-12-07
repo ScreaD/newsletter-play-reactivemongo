@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the issue list
+GET    /                       controllers.Application.index
+
+# issues list (look at the default values for pagination parameters)
+GET    /issues              controllers.Application.list(p: Int ?= 0, s: Int ?= 2, f ?= "")
+
+# Add issue
+GET    /issues/new          controllers.Application.create
+POST   /issues/save         controllers.Application.save
+
+# Edit existing issue
+GET    /issues/:id          controllers.Application.edit(id: String)
+POST   /issues/:id          controllers.Application.update(id: String)
+
+# Delete a computer
+POST   /issues/:id/delete   controllers.Application.delete(id: String)
+
+# issues list (look at the default values for pagination parameters)
+GET    /links              controllers.LinksController.list(p: Int ?= 0, s: Int ?= 2, f ?= "")
+
+# Add issue
+GET    /links/new          controllers.LinksController.create
+POST   /links/save         controllers.LinksController.save
+
+# Edit existing issue
+GET    /links/:id          controllers.LinksController.edit(id: String)
+POST   /links/:id          controllers.LinksController.update(id: String)
+
+# Delete a computer
+POST   /links/:id/delete   controllers.LinksController.delete(id: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file           controllers.Assets.at(path="/public", file)
+
+# Map the webjar static assets to the /webjars URL
+GET    /webjars/*file          controllers.WebJarAssets.at(file)

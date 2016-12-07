@@ -1,0 +1,4 @@
+# Messages
+
+issue.list.title={0,choice,0#No issue|1#One issue|1<{0,number,integer} issues} found
+link.list.title={0,choice,0#No link|1#One link|1<{0,number,integer} links} found

@@ -1,0 +1,9 @@
+@(linkForm: Form[Link])(implicit msg: play.api.i18n.Messages)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@inputText(linkForm("title"), '_label -> "Title", 'class -> "form-control")
+@inputText(linkForm("url"), '_label -> "Url", 'class -> "form-control")
+@inputText(linkForm("readTime"), '_label -> "Read Time", 'class -> "form-control")
